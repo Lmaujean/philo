@@ -25,7 +25,10 @@ HEADER_SRC	=	includes/philo.h
 
 FOLDER		=	srcs/
 
-SRCS		=	main.c
+SRCS		=	main.c\
+				pars.c\
+				utils.c\
+
 
 SRC			=	$(addprefix ${FOLDER}, ${SRCS})
 

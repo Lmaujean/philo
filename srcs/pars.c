@@ -1,29 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   pars.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lmaujean <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/05 10:58:08 by lmaujean          #+#    #+#             */
-/*   Updated: 2022/01/05 10:58:10 by lmaujean         ###   ########.fr       */
+/*   Created: 2022/01/06 11:39:27 by lmaujean          #+#    #+#             */
+/*   Updated: 2022/01/06 11:39:29 by lmaujean         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/philo.h"
 
-int	main(int ac, char **av)
+int	ft_pars_arg(char **av)
 {
-	t_gen	gen;
+	int	i;
 
-	if (ac == 5 || ac == 6)
+	i = 1;
+	while (av[i])
 	{
-		if (ft_pars_arg(av) == -1)
-		{
-			ft_putstr("Error: Invalid Argument\n");
-			return (1);
-		}
-		return (0);
+		if (!ft_strisdigit(av[i]))
+			return (-1);
+		i++;
 	}
-	return (ft_error());
+	return (0);
 }
