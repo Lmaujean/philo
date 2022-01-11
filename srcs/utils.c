@@ -26,9 +26,9 @@ void	ft_putstr(char *str)
 		ft_putchar(str[i]);
 }
 
-int	ft_error(void)
+int	ft_error(char *str)
 {
-	ft_putstr("Error argument\n");
+	ft_putstr(str);
 	return (0);
 }
 
@@ -68,4 +68,21 @@ int	ft_atoi(const char *str)
 		i++;
 	}
 	return ((int)(atoi * symbole));
+}
+
+long int	ft_atoi_long(const char *str)
+{
+	unsigned long int	atoi;
+	int					i;
+	int					symbole;
+
+	i = 0;
+	symbole = 1;
+	atoi = 0;
+	while (ft_isdigit(str[i]))
+	{
+		atoi = (atoi * 10) + (str[i] - 48);
+		i++;
+	}
+	return ((atoi * symbole));
 }

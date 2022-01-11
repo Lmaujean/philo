@@ -18,12 +18,18 @@ int	main(int ac, char **av)
 
 	if (ac == 5 || ac == 6)
 	{
-		if (ft_pars_arg(av) == -1)
+		if (stock_arg(&gen, av))
 		{
-			ft_putstr("Error: Invalid Argument\n");
+			ft_error("Error: Invalid Argument\n");
 			return (1);
 		}
+		if (init_philo(&gen))
+			return (1);
+		if (init_dinner(&gen))
+			return (1);
 		return (0);
 	}
-	return (ft_error());
+	return (ft_error("Error: Arguments\n"));
 }
+
+// Refaire tous les messages d'erreurs ! Avec des return différents !

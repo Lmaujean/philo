@@ -28,6 +28,7 @@ FOLDER		=	srcs/
 SRCS		=	main.c\
 				pars.c\
 				utils.c\
+				start.c\
 
 
 SRC			=	$(addprefix ${FOLDER}, ${SRCS})
