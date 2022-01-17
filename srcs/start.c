@@ -17,8 +17,12 @@ int	init_philo(t_gen *gen)
 	int	i;
 
 	i = 0;
+	gen->philos = malloc(sizeof(t_philo) * gen->nbr_philo);
+	if (!gen->philos)
+		return (1);
 	while (i < gen->nbr_philo)
 	{
+		gen->philos[i].id = i + 1;
 		if (pthread_mutex_init(&gen->philos[i].fork, NULL))
 		{
 			free(gen->philos);
@@ -36,13 +40,15 @@ int	init_philo(t_gen *gen)
 	return (0);
 }
 
-void	*start_phi(void *philo)
+void	*start_philo(void *philo)
 {
 	t_philo	*philos;
 
 	philos = (t_philo *)philo;
 	if (philos->gen->nbr_philo == 1)
 		ft_print(philo, "has taken a fork");
+	if (philos->id %2 == 0)
+		ft_usleep(philos->gen->time_to_sleep);
 	while (philos->gen->alive == 1 && \
 	philos->ate != philos->gen->nbr_meal)
 	{
@@ -57,17 +63,13 @@ int	init_dinner(t_gen *gen)
 	int	i;
 
 	i = 0;
-	gen->philos = malloc(sizeof(t_philo) * gen->nbr_philo);
-	if (!gen->philos)
-		return (1);
 	gen->alive = 1;
 	gen->start_meal = ft_get_time();
 	if (!init_philo(gen))
 	{
-		gen->philos->id = i;
 		while (i < gen->nbr_philo)
 		{
-			pthread_create(&gen->philos[i].philo, NULL, start_phi, \
+			pthread_create(&gen->philos[i].philo, NULL, start_philo, \
 			&gen->philos[i]);
 			i++;
 		}
@@ -77,7 +79,7 @@ int	init_dinner(t_gen *gen)
 			pthread_join(gen->philos[i].philo, NULL);
 			i++;
 		}
-		return (1);
+		return (0);
 	}
-	return (0);
+	return (1);
 }

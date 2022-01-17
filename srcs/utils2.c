@@ -64,3 +64,12 @@ void	ft_print(t_philo *philo, char *str)
 	}
 	pthread_mutex_unlock(&philo->gen->print);
 }
+
+void	ft_usleep(long int time)
+{
+	long int	tmp;
+
+	tmp = ft_get_time();
+	while ((ft_get_time() - tmp) < time)
+		usleep(time);
+}

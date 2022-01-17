@@ -56,7 +56,7 @@ int			ft_pars_arg(char *av, int index);
 int			stock_arg(t_gen *gen, char **av);
 int			init_philo(t_gen *gen);
 int			init_dinner(t_gen *gen);
-void		*start_phi(void *philo);
+void		*start_philo(void *philo);
 void		ft_philo_eat(t_philo *philo);
 void		ft_philo_sleep(t_philo *philo);
 
@@ -71,5 +71,6 @@ int			ft_strisdigit(char *str);
 long int	ft_atoi_long(const char *str);
 long int	ft_get_time(void);
 void		ft_print(t_philo *philo, char *str);
+void		ft_usleep(long int time);
 
 #endif
