@@ -26,13 +26,18 @@ void	ft_putstr(char *str)
 		ft_putchar(str[i]);
 }
 
-int	ft_error(char *str)
+int	ft_error(int index)
 {
-	ft_putstr(str);
+	if (index == 1)
+		ft_putstr("Error: Invalid Argument\n");
+	else if (index == 2)
+		ft_putstr("Error: Initializing Mutex\n");
+	else if (index == 3)
+		ft_putstr("Error: Creating Threads\n");
 	return (0);
 }
 
-const int	ft_isdigit(int c)
+int	ft_isdigit(int c)
 {
 	if (c >= '0' && c <= '9')
 		return (1);
@@ -51,38 +56,4 @@ int	ft_strisdigit(char *str)
 			return (0);
 	}
 	return (1);
-}
-
-int	ft_atoi(const char *str)
-{
-	unsigned long int	atoi;
-	int					i;
-	int					symbole;
-
-	i = 0;
-	symbole = 1;
-	atoi = 0;
-	while (ft_isdigit(str[i]))
-	{
-		atoi = (atoi * 10) + (str[i] - 48);
-		i++;
-	}
-	return ((int)(atoi * symbole));
-}
-
-long int	ft_atoi_long(const char *str)
-{
-	unsigned long int	atoi;
-	int					i;
-	int					symbole;
-
-	i = 0;
-	symbole = 1;
-	atoi = 0;
-	while (ft_isdigit(str[i]))
-	{
-		atoi = (atoi * 10) + (str[i] - 48);
-		i++;
-	}
-	return ((atoi * symbole));
 }

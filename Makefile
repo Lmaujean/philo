@@ -16,7 +16,7 @@
 NAME				= philo
 CC					= gcc
 RM					= rm -f
-CFLAGS				= #-Wall -Wextra -Werror #-g -fsanitize=address
+CFLAGS				= -Wall -Wextra -Werror #-g -fsanitize=address
 
 #############################################################################
 #                            DECLARATION                                        #
@@ -29,6 +29,9 @@ SRCS		=	main.c\
 				pars.c\
 				utils.c\
 				start.c\
+				utils2.c\
+				life.c\
+
 
 
 SRC			=	$(addprefix ${FOLDER}, ${SRCS})
