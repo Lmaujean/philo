@@ -25,6 +25,8 @@ int	main(int ac, char **av)
 		while (gen.alive == 1 && gen.all_ate != gen.nbr_philo)
 			ft_check_death(&gen);
 		ft_clean_meal(&gen);
+		free(gen.philos);
+		gen.philos = NULL;
 		return (0);
 	}
 	return (ft_error(1));

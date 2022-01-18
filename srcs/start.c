@@ -26,6 +26,7 @@ int	init_philo(t_gen *gen)
 		if (pthread_mutex_init(&gen->philos[i].fork, NULL))
 		{
 			free(gen->philos);
+			gen->philos = NULL;
 			return (2);
 		}
 		if (i == gen->nbr_philo - 1)
