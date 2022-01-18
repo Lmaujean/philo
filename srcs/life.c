@@ -19,11 +19,9 @@ void	ft_philo_eat(t_philo *philo)
 		pthread_mutex_lock(&philo->fork);
 		pthread_mutex_lock(philo->next_fork);
 		ft_print(philo, "has taken a fork");
-		pthread_mutex_lock(&philo->gen->eat);
 		philo->last_meal = ft_get_time();
 		ft_print(philo, "is eating");
 		philo->ate++;
-		pthread_mutex_unlock(&philo->gen->eat);
 		ft_usleep(philo->gen->time_to_eat, philo);
 	}
 }
@@ -45,23 +43,18 @@ void	ft_check_death(t_gen *gen)
 	int	i;
 
 	i = 0;
-	pthread_mutex_lock(&gen->eat);
 	while (i < gen->nbr_philo && gen->all_ate != gen->nbr_meal && \
 	gen->alive == 1)
 	{
-		if (gen->philos[i].ate == gen->nbr_meal)
-			i++;
-		else if (ft_get_time() - gen->philos[i].last_meal > gen->time_to_die)
+		if (ft_get_time() - gen->philos[i].last_meal > gen->time_to_die)
 		{
 			gen->alive = 0;
 			printf("%ld %d Died !\n", ft_get_time() - gen->start_meal, \
 			gen->philos[i].id);
 			return ;
 		}
-		pthread_mutex_unlock(&gen->eat);
 		i++;
 	}
-	usleep(100);
 }
 
 void	ft_clean_meal(t_gen *gen)
@@ -69,7 +62,6 @@ void	ft_clean_meal(t_gen *gen)
 	int	i;
 
 	i = 0;
-	usleep(gen->nbr_philo * 1000);
 	pthread_mutex_unlock(&gen->print);
 	pthread_mutex_destroy(&gen->print);
 	pthread_mutex_unlock(&gen->eat);

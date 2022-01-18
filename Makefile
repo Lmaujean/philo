@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: lmaujean <marvin@42.fr>                    +#+  +:+       +#+         #
+#    By: bledda <bledda@student.42nice.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/05 10:57:50 by lmaujean          #+#    #+#              #
-#    Updated: 2022/01/05 10:57:52 by lmaujean         ###   ########.fr        #
+#    Updated: 2022/01/18 17:48:03 by bledda           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@
 #                            BASIC DECLARATION                                #
 #############################################################################
 NAME				= philo
-CC					= gcc
+CC					= clang
 RM					= rm -f
 CFLAGS				= -Wall -Wextra -Werror #-g -fsanitize=address
 

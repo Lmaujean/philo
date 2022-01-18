@@ -35,6 +35,7 @@ int	init_philo(t_gen *gen)
 		gen->philos[i].gen = gen;
 		i++;
 	}
+	gen->all_ate = 0;
 	if (pthread_mutex_init(&gen->print, NULL))
 		return (3);
 	return (0);
@@ -55,9 +56,7 @@ void	*start_philo(void *philo)
 		ft_philo_eat(philos);
 		ft_philo_sleep(philos);
 	}
-	pthread_mutex_lock(&philos->gen->eat);
 	philos->gen->all_ate++;
-	pthread_mutex_unlock(&philos->gen->eat);
 	return (NULL);
 }
 
@@ -84,6 +83,7 @@ int	init_dinner(t_gen *gen)
 			if (pthread_create(&gen->philos[i].philo, NULL, start_philo, \
 			&gen->philos[i]))
 				return (ft_error(3));
+			usleep(100);
 			i++;
 		}
 		return (0);
