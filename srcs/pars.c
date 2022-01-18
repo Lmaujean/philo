@@ -14,8 +14,8 @@
 
 int	check_int(char *av)
 {
-	unsigned long res;
-	int i;
+	unsigned long	res;
+	int				i;
 
 	res = 0;
 	i = 0;
@@ -30,8 +30,8 @@ int	check_int(char *av)
 
 int	check_long(char *av)
 {
-	unsigned long long res;
-	int i;
+	unsigned long long	res;
+	int					i;
 
 	res = 0;
 	i = 0;
@@ -63,8 +63,8 @@ int	ft_pars_arg(char *av, int index)
 
 int	stock_arg(t_gen *gen, char **av)
 {
-	int i;
-	
+	int	i;
+
 	i = 1;
 	while (av[i])
 	{
@@ -86,5 +86,5 @@ int	stock_arg(t_gen *gen, char **av)
 		gen->nbr_meal = -1;
 	if (gen->nbr_philo < 1 || gen->nbr_meal == 0)
 		return (1);
-	return(0);
+	return (0);
 }

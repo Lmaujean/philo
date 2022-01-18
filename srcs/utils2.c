@@ -59,17 +59,17 @@ void	ft_print(t_philo *philo, char *str)
 	pthread_mutex_lock(&philo->gen->print);
 	if (philo->gen->alive == 1)
 	{
-		printf("%ld ms %d %s\n", ft_get_time() - philo->gen->start_meal, \
+		printf("%ld %d %s\n", ft_get_time() - philo->gen->start_meal, \
 		philo->id, str);
 	}
 	pthread_mutex_unlock(&philo->gen->print);
 }
 
-void	ft_usleep(long int time)
+void	ft_usleep(long int time, t_philo *philo)
 {
 	long int	tmp;
 
 	tmp = ft_get_time();
-	while ((ft_get_time() - tmp) < time)
+	while ((ft_get_time() - tmp) < time && philo->gen->alive != 0)
 		usleep(time);
 }

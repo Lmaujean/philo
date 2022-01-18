@@ -22,7 +22,7 @@
 
 /******* STRUC PHILO *******/
 
-typedef struct s_gen t_gen;
+typedef struct s_gen	t_gen;
 
 typedef struct s_philo
 {
@@ -59,6 +59,8 @@ int			init_dinner(t_gen *gen);
 void		*start_philo(void *philo);
 void		ft_philo_eat(t_philo *philo);
 void		ft_philo_sleep(t_philo *philo);
+void		ft_check_death(t_gen *gen);
+void		ft_clean_meal(t_gen *gen);
 
 /******* FONCTION UTILS *******/
 
@@ -71,6 +73,6 @@ int			ft_strisdigit(char *str);
 long int	ft_atoi_long(const char *str);
 long int	ft_get_time(void);
 void		ft_print(t_philo *philo, char *str);
-void		ft_usleep(long int time);
+void		ft_usleep(long int time, t_philo *philo);
 
 #endif

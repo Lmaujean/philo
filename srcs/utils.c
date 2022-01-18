@@ -34,6 +34,8 @@ int	ft_error(int index)
 		ft_putstr("Error: Initializing Mutex\n");
 	else if (index == 3)
 		ft_putstr("Error: Creating Threads\n");
+	else if (index == 4)
+		ft_putstr("Philo Died\n");
 	return (0);
 }
 
