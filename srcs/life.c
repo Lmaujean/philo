@@ -64,8 +64,6 @@ void	ft_clean_meal(t_gen *gen)
 	i = 0;
 	pthread_mutex_unlock(&gen->print);
 	pthread_mutex_destroy(&gen->print);
-	pthread_mutex_unlock(&gen->eat);
-	pthread_mutex_destroy(&gen->eat);
 	while (i < gen->nbr_philo)
 	{
 		pthread_mutex_unlock(&gen->philos[i].fork);

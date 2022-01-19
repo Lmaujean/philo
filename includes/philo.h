@@ -47,7 +47,6 @@ typedef struct s_gen
 	t_philo			*philos;
 	int				all_ate;
 	pthread_mutex_t	print;
-	pthread_mutex_t	eat;
 }				t_gen;
 
 /******* FONCTION PHILO *******/
